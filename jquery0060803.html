@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./reset.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lexend+Giga:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        body{
+            font-family: "Lexend Giga", sans-serif;
+        }
+        header{
+            width: 100%;
+            height: 75px;
+            background-color: transparent;
+            position: fixed;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s;
+        }
+        header.on{
+            background-color: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(50px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        }
+        nav{
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+        .logo{
+            width: 290px;
+            height: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        nav > ul{
+            display: flex;
+            gap: 25px;
+            font-size: 18px;
+            font-weight: 400;
+            transition: all 0.4s;
+            text-align: center;
+        }
+        .board:hover{
+            gap: 50px;
+            color: #333;
+            cursor: pointer;
+        }
+        .board.on{
+            color: #333;
+        }
+        .gnb{
+            display: none;
+            width: 100%;
+            height: 300px;
+            background-color: rgba(255, 255, 255, 0.2);
+            z-index: 10;
+            position: fixed;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 50px;
+            margin-top: 75px;
+            padding-left: 290px;
+        }
+        .head_icon{
+            width: 200px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .head_icon > ul{
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        .head_icon > ul > li > img{
+            width: 25px;
+        }
+        .main{
+            width: 100%;
+            height: 100vh;
+            background-image: url("./img/main_img.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+            padding: 0 100px;
+            gap: 50px;
+        }
+        .main h1{
+            font-size: 60px;
+            line-height: 50px;
+            font-weight: 400;
+        }
+        .main p{
+            font-size: 18px;
+        }
+        .event{
+            width: 100%;
+            height: 400px;
+        }
+        .event_img{
+            width: 100%;
+            height: 100%;
+            padding: 50px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .event_img > h4{
+            font-size: 36px;
+        }
+        .event_img > img{
+            object-fit: cover;
+            position: absolute;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><img src="./img/search_header_logo.png"/><p>Freeze The Power</p></div>
+            <ul class="board">
+                <li>About</li>
+                <li>Products</li>
+                <li>Event</li>
+                <li>Community</li>
+            </ul>
+            <div class="head_icon">
+                <ul>
+                    <li><img src="./img/Asset 1.png"/></li>
+                    <li><img src="./img/Asset 2.png"/></li>
+                    <li><img src="./img/Asset 3.png"/></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="gnb">
+        <ul>
+            <li>Brand Story</li>
+        </ul>
+        <ul>
+            <li>Brand Story</li>
+        </ul>
+        <ul>
+            <li>Brand Story</li>
+        </ul>
+        <ul>
+            <li>Brand Story</li>
+        </ul>
+    </div>
+    <div class="main">
+        <h1>Advanced results,<br>everyday routine.</h1>
+        <p>전문가의 영역을 당신의 일상 루틴으로 확장합니다.</p>
+    </div>
+    <div class="event">
+        <div class="event_img">
+            <h4>New member exclusive<br>welcome coupon!</h4>
+            <img src="./img/event.png"/>
+        </div>
+    </div>
+    <script>
+        $(".board").on("mouseenter", function(){
+            $("header").addClass("on")
+            $(".board").addClass("on")
+        })
+        $(".board").on("mouseleave", function(){
+            $("header").removeClass("on")
+            $(".board").removeClass("on")
+        })
+        $(window).on("scroll", function(){
+            let scrTop = $(window).scrollTop();
+            if(scrTop > 75){
+                $("header").addClass("on")
+                $(".board").addClass("on")
+            }else{
+                $("header").removeClass("on")
+                $(".board").removeClass("on")
+            }
+        })
+    </script>
+</body>
+</html>
